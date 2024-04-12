@@ -23,4 +23,4 @@ Assignment 9 Requirements.pdf
 *.njsproj
 *.sln
 *.sw?
-
+.env
