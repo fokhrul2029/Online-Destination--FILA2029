@@ -6,6 +6,7 @@ function Login() {
     <div className="hero py-20"> 
         <div className="card md:w-[450px] shadow-2xl bg-base-500">
           <form className="card-body">
+            <h1 className="text-center text-3xl font-semibold text-gray-600 pb-2">Login Page</h1>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
