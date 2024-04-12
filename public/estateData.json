@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "estate_title": "Modern Hospital Complex",
+    "segment_name": "speciality",
+    "description": "State-of-the-art medical facility with specialized departments.",
+    "price": "$50,000,000",
+    "status": "sale",
+    "area": "100,000 sq ft",
+    "location": "New York City, New York",
+    "facilities": ["emergency department", "surgical suites", "MRI center"],
+    "image": "/img/hospital-complex.jpg"
+  },
+  {
+    "id": 2,
+    "estate_title": "Elite Private School",
+    "segment_name": "speciality",
+    "description": "Top-tier education institution with world-class faculty.",
+    "price": "$20,000,000",
+    "status": "sale",
+    "area": "50,000 sq ft",
+    "location": "London, England",
+    "facilities": ["science labs", "art studios", "sports fields"],
+    "image": "/img/private-school.jpg"
+  },
+  {
+    "id": 3,
+    "estate_title": "Historic Cathedral",
+    "segment_name": "speciality",
+    "description": "Iconic religious landmark with stunning architectural details.",
+    "price": "Priceless",
+    "status": "sale",
+    "area": "10,000 sq ft",
+    "location": "Paris, France",
+    "facilities": ["stained glass windows", "bell tower", "crypt"],
+    "image": "/img/historic-cathedral.jpg"
+  },
+  {
+    "id": 4,
+    "estate_title": "Central Transportation Hub",
+    "segment_name": "speciality",
+    "description": "Key transit center connecting various modes of transportation.",
+    "price": "$100,000,000",
+    "status": "sale",
+    "area": "200,000 sq ft",
+    "location": "Tokyo, Japan",
+    "facilities": ["train platforms", "bus terminals", "subway access"],
+    "image": "/img/transportation-hub.jpg"
+  },
+  {
+    "id": 5,
+    "estate_title": "Grand Convention Center",
+    "segment_name": "speciality",
+    "description": "Versatile event space for conferences, trade shows, and more.",
+    "price": "$80,000,000",
+    "status": "sale",
+    "area": "300,000 sq ft",
+    "location": "Dubai, UAE",
+    "facilities": ["exhibition halls", "meeting rooms", "ballrooms"],
+    "image": "/img/grand-convention-center.jpg"
+  },
+  {
+    "id": 6,
+    "estate_title": "Contemporary Art Gallery",
+    "segment_name": "speciality",
+    "description": "Showcase modern and contemporary artworks in a sophisticated setting.",
+    "price": "$15,000,000",
+    "status": "sale",
+    "area": "20,000 sq ft",
+    "location": "Berlin, Germany",
+    "facilities": ["gallery spaces", "sculpture garden", "lecture hall"],
+    "image": "/img/art-gallery.jpg"
+  }
+]

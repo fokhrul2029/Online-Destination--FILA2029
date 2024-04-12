@@ -13,6 +13,7 @@ const routes = createBrowserRouter([
     children: [
       {
         path: "/",
+        loader: () => fetch("/estateData.json"),
         element: <Home />,
       },
       {
