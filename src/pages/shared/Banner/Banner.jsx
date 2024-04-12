@@ -1,18 +1,17 @@
 import { useLoaderData } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+import Slider from "../../../components/Slider/Slider";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
-import Slider from "../../../components/Slider/Slider";
-
 function Banner() {
   const data = useLoaderData();
-  console.log(data);
+
   return (
-    <>
+    <div className="py-10">
       <Swiper
         cssMode={true}
         navigation={true}
@@ -28,7 +27,7 @@ function Banner() {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   );
 }
 
