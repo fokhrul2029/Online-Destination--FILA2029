@@ -1,9 +1,13 @@
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 /* eslint-disable react/no-unescaped-entities */
 function Register() {
   return (
     <div className="hero py-20">
+      <Helmet>
+        <title>Register || FILA 2029</title>
+      </Helmet>
       <div className="card md:w-[450px] shadow-2xl bg-base-500">
         <form className="card-body">
           <h1 className="text-center text-3xl font-semibold text-gray-600 pb-2">

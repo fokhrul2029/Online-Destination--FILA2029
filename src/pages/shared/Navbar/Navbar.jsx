@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
@@ -14,6 +15,9 @@ function Navbar() {
 
   return (
     <div className="bg-slate-300">
+      <Helmet>
+        <title>404 Not Found || FILA 2029 </title>
+      </Helmet>
       <div className="container mx-auto px-4 navbar">
         <div className="navbar-start">
           <div className="dropdown">
@@ -40,7 +44,12 @@ function Navbar() {
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <Link to="/" className="text-xl cursor-pointer">
+            <div className="bg-gray-600 py-1 px-2 rounded-md text-slate-200 flex justify-center items-center gap-1">
+              <h1 className="text-4xl font-bold">FILA</h1>
+              <p className="text-2xl text-green-200 font-bold">2029</p>
+            </div>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
