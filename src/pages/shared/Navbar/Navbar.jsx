@@ -1,7 +1,17 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../contextApi/AuthProvider/AuthProvider";
 
 function Navbar() {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => console.log("Logout Success!!"))
+      .catch((error) => console.error(error));
+  };
+
   const links = (
     <div className="flex gap-1">
       <li>
@@ -55,9 +65,13 @@ function Navbar() {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login" className="btn">
-            Login
-          </Link>
+          {user ? (
+            <button className="btn" onClick={handleLogOut}>Logout</button>
+          ) : (
+            <Link to="/login" className="btn">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

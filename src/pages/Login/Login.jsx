@@ -1,21 +1,26 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithub, FaFacebook } from "react-icons/fa";
 import { useState } from "react";
 import { useContext } from "react";
-import { AuthContext } from "../../contextApi/AuthProvider/AuthProvider"; 
+import { AuthContext } from "../../contextApi/AuthProvider/AuthProvider";
 
 function Login() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
-
-  const authInfo = useContext(AuthContext)
-  console.log(authInfo)
+  const navigate = useNavigate();
+  const { signIn } = useContext(AuthContext);
 
   const handleLoginForm = (e) => {
     e.preventDefault();
     console.log(email, password);
+    signIn(email, password)
+      .then((res) => {
+        console.log(res.use);
+        navigate("/");
+      })
+      .catch((error) => console.error(error));
   };
   return (
     <div className="hero py-20">

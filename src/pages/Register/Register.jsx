@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contextApi/AuthProvider/AuthProvider";
 
 /* eslint-disable react/no-unescaped-entities */
 function Register() {
@@ -8,10 +9,16 @@ function Register() {
   const [email, setEmail] = useState(null);
   const [photo, setPhoto] = useState(null);
   const [password, setPassword] = useState(null);
+  const { createUser } = useContext(AuthContext);
 
   const handleRegisterForm = (e) => {
     e.preventDefault();
     console.log(name, email, photo, password);
+    createUser(email, password)
+      .then((res) => {
+        console.log(res.user);
+      })
+      .catch((error) => console.error(error));
   };
   return (
     <div className="hero py-20">
