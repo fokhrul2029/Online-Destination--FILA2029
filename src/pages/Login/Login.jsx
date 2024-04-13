@@ -10,7 +10,7 @@ function Login() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const navigate = useNavigate();
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
 
   const handleLoginForm = (e) => {
     e.preventDefault();
@@ -22,6 +22,23 @@ function Login() {
       })
       .catch((error) => console.error(error));
   };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((res) => {
+        console.log(res.user);
+        navigate("/");
+      })
+      .catch((error) => console.error(error));
+  };
+
+  const handleGithubSignIn = () => {
+    githubSignIn().then((res) => {
+      console.log(res.user);
+      navigate("/");
+    });
+  };
+
   return (
     <div className="hero py-20">
       <Helmet>
@@ -67,10 +84,10 @@ function Login() {
             <button className="btn btn-primary">Login</button>
           </div>
           <div className="flex gap-4 justify-around items-center py-4">
-            <div className="btn">
+            <div onClick={handleGoogleSignIn} className="btn">
               <FaGoogle />
             </div>
-            <div className="btn">
+            <div onClick={handleGithubSignIn} className="btn">
               {" "}
               <FaGithub />{" "}
             </div>

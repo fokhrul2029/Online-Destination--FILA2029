@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
 import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
 } from "firebase/auth";
 import { createContext } from "react";
@@ -24,6 +27,16 @@ function AuthProvider({ children }) {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  const githubProvider = new GithubAuthProvider();
+  const googleSignIn = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  const googleProvider = new GoogleAuthProvider();
+  const githubSignIn = () => {
+    return signInWithPopup(auth, githubProvider);
+  };
+
   const logOut = () => {
     return signOut(auth);
   };
@@ -36,7 +49,15 @@ function AuthProvider({ children }) {
     return () => unSubscribe();
   }, []);
 
-  const authInfo = { user, createUser, signIn, logOut, loader };
+  const authInfo = {
+    user,
+    createUser,
+    signIn,
+    logOut,
+    loader,
+    googleSignIn,
+    githubSignIn,
+  };
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
