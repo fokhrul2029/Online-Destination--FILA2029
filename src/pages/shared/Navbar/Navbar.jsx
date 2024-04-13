@@ -7,7 +7,7 @@ function Navbar() {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/profile">Profile</NavLink>
+        <NavLink to="/profile">Update Profile</NavLink>
       </li>
     </div>
   );
