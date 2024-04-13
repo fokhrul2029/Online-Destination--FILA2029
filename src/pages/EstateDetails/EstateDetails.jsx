@@ -13,7 +13,7 @@ function EstateDetails() {
   return (
     <div className="py-20 container mx-auto px-4">
         <Helmet>
-            <title>Estate Details || FILA 2029</title>
+            <title>{estate_title} || FILA 2029</title>
         </Helmet>
       <div className="flex justify-around items-center">
         <div>
