@@ -1,15 +1,25 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 /* eslint-disable react/no-unescaped-entities */
 function Register() {
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [photo, setPhoto] = useState(null);
+  const [password, setPassword] = useState(null);
+
+  const handleRegisterForm = (e) => {
+    e.preventDefault();
+    console.log(name, email, photo, password);
+  };
   return (
     <div className="hero py-20">
       <Helmet>
         <title>Register || FILA 2029</title>
       </Helmet>
       <div className="card md:w-[450px] shadow-2xl bg-base-500">
-        <form className="card-body">
+        <form onSubmit={handleRegisterForm} className="card-body">
           <h1 className="text-center text-3xl font-semibold text-gray-600 pb-2">
             Register Form
           </h1>
@@ -22,6 +32,8 @@ function Register() {
               placeholder="Enter Name"
               className="input input-bordered"
               required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="form-control">
@@ -33,6 +45,8 @@ function Register() {
               placeholder="email"
               className="input input-bordered"
               required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="form-control">
@@ -44,6 +58,8 @@ function Register() {
               placeholder="Photo URL"
               className="input input-bordered"
               required
+              value={photo}
+              onChange={(e) => setPhoto(e.target.value)}
             />
           </div>
           <div className="form-control">
@@ -55,6 +71,8 @@ function Register() {
               placeholder="password"
               className="input input-bordered"
               required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="form-control mt-6">
