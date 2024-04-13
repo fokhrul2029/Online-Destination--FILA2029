@@ -7,6 +7,7 @@ import Register from "../pages/Register/Register";
 import EstateDetails from "../pages/EstateDetails/EstateDetails";
 import Profile from "../pages/Profile/Profile";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import PublicRoutes from "./PublicRoutes/PublicRoutes";
 
 const routes = createBrowserRouter([
   {
@@ -34,11 +35,19 @@ const routes = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login />,
+        element: (
+          <PublicRoutes>
+            <Login />
+          </PublicRoutes>
+        ),
       },
       {
         path: "/register",
-        element: <Register />,
+        element: (
+          <PublicRoutes>
+            <Register />
+          </PublicRoutes>
+        ),
       },
     ],
   },
