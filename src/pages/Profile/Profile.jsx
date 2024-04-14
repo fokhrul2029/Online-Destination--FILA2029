@@ -41,7 +41,7 @@ function Profile() {
             <input
               onChange={(e) => setCheckbox(e.target.checked)}
               type="checkbox"
-              className="toggle theme-controller"
+              className="toggle theme-controller checked:text-primary"
             />
           </label>
         </div>
@@ -49,7 +49,7 @@ function Profile() {
           <div className="flex gap-10 items-center">
             <div className="text-center w-1/3">
               <img
-                className="mx-auto rounded-full w-full border-2 p-2"
+                className="mx-auto border-blue-200 rounded-full w-full border-2 p-2"
                 src={photoURL}
                 alt={displayName || "null"}
               />
@@ -80,7 +80,7 @@ function Profile() {
           <div className="flex gap-2 justify-end items-center pt-4">
             <input
               disabled={edit}
-              className="btn btn-info"
+              className="btn bg-primary border-transparent hover:bg-primary text-white"
               type="submit"
               value="Update"
             />

@@ -95,7 +95,7 @@ function Login() {
             </label>
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Login</button>
+            <button className="btn bg-primary border-transparent hover:bg-primary text-white">Login</button>
           </div>
           <div className="flex gap-4 justify-around items-center py-4">
             <div onClick={handleGoogleSignIn} className="btn">
@@ -112,7 +112,7 @@ function Login() {
           </div>
           <p>
             I don't have account.{" "}
-            <Link className="btn-link" to="/register">
+            <Link className="btn-link text-primary" to="/register">
               Register Now
             </Link>
           </p>

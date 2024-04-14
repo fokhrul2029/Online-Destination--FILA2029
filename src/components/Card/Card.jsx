@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 /* eslint-disable react/prop-types */
 function Card({ data }) {
   const navigate = useNavigate();
-  const { id, image, estate_title, description, location, status } =
-    data;
+  const { id, image, estate_title, description, location, status } = data;
 
   const handleDetailsButton = (id) => {
     navigate(`estateDetails/${id}`);
@@ -18,19 +17,19 @@ function Card({ data }) {
       <div className="card-body px-5">
         {" "}
         <h2 className="card-title font-bold">{estate_title}</h2>
-        <p className="text-lg font-medium text-gray-400">{description}</p> 
+        <p className="text-lg font-medium text-gray-400">{description}</p>
         <div className="flex w-fit gap-2 items-center flex-wrap">
           <p className="font-bold">Location: </p>
           <p>{location}</p>
         </div>
         <div className="flex w-fit gap-2 items-center">
           <p className="font-bold">Status: </p>
-          <p className="font-semibold text-green-600">{status}</p>
+          <p className="font-semibold text-primary">{status}</p>
         </div>
         <div className="card-actions justify-center mt-4">
           <button
             onClick={() => handleDetailsButton(id)}
-            className="btn btn-primary w-full"
+            className="btn bg-primary border-transparent hover:bg-primary text-white w-full"
           >
             View Property
           </button>

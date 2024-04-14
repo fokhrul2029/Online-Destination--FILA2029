@@ -87,11 +87,11 @@ function Register() {
             />
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Register</button>
+            <button className="btn bg-primary border-transparent hover:bg-primary text-white">Register</button>
           </div>
           <p>
             I have an account.{" "}
-            <Link className="btn-link" to="/login">
+            <Link className="btn-link text-primary" to="/login">
               Login Now
             </Link>
           </p>

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../contextApi/AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
+import Logo from "../../../components/Logo/Logo";
 
 function Navbar() {
   const { user, logOut } = useContext(AuthContext);
@@ -24,7 +25,7 @@ function Navbar() {
   );
 
   return (
-    <div className="bg-slate-300">
+    <div className="shadow-lg">
       <div className="container mx-auto px-4 navbar">
         <div className="navbar-start">
           <div className="dropdown">
@@ -51,12 +52,7 @@ function Navbar() {
               {links}
             </ul>
           </div>
-          <Link to="/" className="text-xl cursor-pointer">
-            <div className="bg-gray-600 py-1 px-2 rounded-md text-slate-200 flex justify-center items-center gap-1">
-              <h1 className="text-4xl font-bold">FILA</h1>
-              <p className="text-2xl text-green-200 font-bold">2029</p>
-            </div>
-          </Link>
+          <Logo />
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -65,17 +61,23 @@ function Navbar() {
           {user ? (
             <div className="flex items-center gap-2">
               <img
-                className="w-12 h-12 rounded-full border-2 p-1 cursor-pointer"
+                className="w-12 h-12 rounded-full border-2 p-1 cursor-pointer border-blue-300"
                 src={user.photoURL || "null"}
                 alt={user.displayName || "null"}
                 title={user.displayName || "null"}
               />
-              <button className="btn" onClick={handleLogOut}>
+              <button
+                className="btn bg-primary border-transparent hover:bg-primary text-white"
+                onClick={handleLogOut}
+              >
                 Logout
               </button>
             </div>
           ) : (
-            <Link to="/login" className="btn">
+            <Link
+              to="/login"
+              className="btn bg-primary border-transparent hover:bg-primary text-white"
+            >
               Login
             </Link>
           )}
