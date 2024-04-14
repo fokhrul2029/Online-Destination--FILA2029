@@ -5,6 +5,7 @@ import { FaGoogle, FaGithub, FaFacebook } from "react-icons/fa";
 import { useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../contextApi/AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 function Login() {
   const [email, setEmail] = useState(null);
@@ -18,25 +19,38 @@ function Login() {
     signIn(email, password)
       .then((res) => {
         console.log(res.use);
+        toast.success("Login Success.")
         navigate("/");
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        toast.error("Login failed, Email or password doesn't incorrect!")
+        console.error(error);
+      });
   };
 
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((res) => {
         console.log(res.user);
+        toast.success("Login Success.")
         navigate("/");
+
       })
-      .catch((error) => console.error(error));
+      .catch(() => {
+        toast.error("Login failed, Something went wrong!!")
+      });
   };
 
   const handleGithubSignIn = () => {
-    githubSignIn().then((res) => {
-      console.log(res.user);
-      navigate("/");
-    });
+    githubSignIn()
+      .then((res) => {
+        console.log(res.user);
+        toast.success("Login Success.")
+        navigate("/");
+      })
+      .catch(() => {
+        toast.error("Login failed, Something went wrong!!")
+      });
   };
 
   return (

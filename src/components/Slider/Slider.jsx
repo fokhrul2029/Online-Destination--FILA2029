@@ -7,7 +7,7 @@ function Slider({ data }) {
         <img
           src={image}
           alt={estate_title}
-          className="w-full h-[500px] opacity-[.8] "
+          className="w-full md:h-[300px] lg:h-[500px] opacity-[.8] "
         />
         <div className="absolute inset-0 opacity-30"></div>
         <div className="absolute inset-0 flex flex-col gap-4 justify-center items-center">
