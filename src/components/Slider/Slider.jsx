@@ -2,13 +2,20 @@
 function Slider({ data }) {
   const { image, estate_title, description } = data;
   return (
-    <div className="flex gap-5 justify-around py-40 border items-center px-10">
-      <div className="flex flex-col gap-5">
-        <h1 className="text-2xl">{estate_title}</h1>
-        <p>{description}</p>
-      </div>
-      <div className="w-1/3">
-        <img className="rounded-2xl" src={image} alt="" />
+    <div className="flex gap-5 justify-around py-10 items-center">
+      <div className="relative overflow-hidden w-full bg-black rounded-xl">
+        <img
+          src={image}
+          alt={estate_title}
+          className="w-full h-[500px] opacity-[.8] "
+        />
+        <div className="absolute inset-0 opacity-30"></div>
+        <div className="absolute inset-0 flex flex-col gap-4 justify-center items-center">
+          <h1 className="text-white text-4xl font-bold text-center">
+            {estate_title}
+          </h1>
+          <p className="text-gray-300 font-medium text-xl">{description}</p>
+        </div>
       </div>
     </div>
   );

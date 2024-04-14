@@ -1,11 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay } from "swiper/modules";
 import Slider from "../../../components/Slider/Slider";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 function Banner() {
   const data = useLoaderData();
@@ -13,13 +14,13 @@ function Banner() {
   return (
     <div className="py-10">
       <Swiper
-        cssMode={true}
+        className="mySwiper"
         navigation={true}
         pagination={true}
         mousewheel={true}
         keyboard={true}
-        modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-        className="mySwiper"
+        autoplay={true}
+        modules={[Navigation, Pagination, Mousewheel, Keyboard, Autoplay]}
       >
         {data.map((item) => (
           <SwiperSlide key={item.id}>

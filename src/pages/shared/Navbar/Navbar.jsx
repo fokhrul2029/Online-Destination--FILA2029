@@ -1,11 +1,10 @@
 import { useContext } from "react";
-import { Helmet } from "react-helmet";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../contextApi/AuthProvider/AuthProvider";
 
 function Navbar() {
   const { user, logOut } = useContext(AuthContext);
-
+ 
   const handleLogOut = () => {
     logOut()
       .then(() => console.log("Logout Success!!"))
@@ -25,9 +24,6 @@ function Navbar() {
 
   return (
     <div className="bg-slate-300">
-      <Helmet>
-        <title>404 Not Found || FILA 2029 </title>
-      </Helmet>
       <div className="container mx-auto px-4 navbar">
         <div className="navbar-start">
           <div className="dropdown">
@@ -66,7 +62,17 @@ function Navbar() {
         </div>
         <div className="navbar-end">
           {user ? (
-            <button className="btn" onClick={handleLogOut}>Logout</button>
+            <div className="flex items-center gap-2">
+              <img
+                className="w-12 rounded-full border-2 p-1 cursor-pointer"
+                src={user.photoURL || "null"}
+                alt={user.displayName || "null"}
+                title={user.displayName || "null"}
+              />
+              <button className="btn" onClick={handleLogOut}>
+                Logout
+              </button>
+            </div>
           ) : (
             <Link to="/login" className="btn">
               Login
