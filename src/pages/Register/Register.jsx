@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contextApi/AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 /* eslint-disable react/no-unescaped-entities */
 function Register() {
@@ -9,16 +10,19 @@ function Register() {
   const [email, setEmail] = useState(null);
   const [photo, setPhoto] = useState(null);
   const [password, setPassword] = useState(null);
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const handleRegisterForm = (e) => {
     e.preventDefault();
     console.log(name, email, photo, password);
     createUser(email, password)
-      .then((res) => {
-        console.log(res.user);
+      .then(() => {
+        updateUserProfile(name, password);
+        toast.success("Registration Success!");
       })
-      .catch((error) => console.error(error));
+      .catch(() => {
+        toast.error("Registration failed, Something went wrong!");
+      });
   };
   return (
     <div className="hero py-20">

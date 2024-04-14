@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../../contextApi/AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 /* eslint-disable react/no-unescaped-entities */
 function Profile() {
-  const { user } = useContext(AuthContext);
+  const { user, updateUserProfile } = useContext(AuthContext);
   const { displayName, email, photoURL } = user;
 
   const [checkbox, setCheckbox] = useState(false);
@@ -16,6 +17,13 @@ function Profile() {
   useEffect(() => {
     setEdit(!checkbox);
   }, [checkbox]);
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    updateUserProfile(name, photo);
+    setCheckbox(!checkbox);
+    toast.success("Profile Successfully Updated!")
+  };
 
   return (
     <div className="py-20 container mx-auto px-4">
@@ -37,7 +45,7 @@ function Profile() {
             />
           </label>
         </div>
-        <form className=" py-10">
+        <form onSubmit={handleUpdate} className=" py-10">
           <div className="flex gap-10 items-center">
             <div className="text-center w-1/3">
               <img
@@ -73,8 +81,8 @@ function Profile() {
             <input
               disabled={edit}
               className="btn btn-info"
-              type="button"
-              value="Save Data"
+              type="submit"
+              value="Update"
             />
           </div>
         </form>

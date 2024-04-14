@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { createContext } from "react";
 import auth from "../../firebase/firebase.confiq";
@@ -21,6 +22,13 @@ function AuthProvider({ children }) {
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const updateUserProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
   };
 
   const signIn = (email, password) => {
@@ -57,6 +65,7 @@ function AuthProvider({ children }) {
     loader,
     googleSignIn,
     githubSignIn,
+    updateUserProfile
   };
 
   return (

@@ -65,7 +65,7 @@ function Navbar() {
           {user ? (
             <div className="flex items-center gap-2">
               <img
-                className="w-12 rounded-full border-2 p-1 cursor-pointer"
+                className="w-12 h-12 rounded-full border-2 p-1 cursor-pointer"
                 src={user.photoURL || "null"}
                 alt={user.displayName || "null"}
                 title={user.displayName || "null"}
