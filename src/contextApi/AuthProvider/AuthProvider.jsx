@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import {
+  FacebookAuthProvider,
   GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -44,6 +45,10 @@ function AuthProvider({ children }) {
   const githubSignIn = () => {
     return signInWithPopup(auth, githubProvider);
   };
+  const facebookProvider = new FacebookAuthProvider();
+  const facebookSignIn = () => {
+    return signInWithPopup(auth, facebookProvider);
+  };
 
   const logOut = () => {
     return signOut(auth);
@@ -65,7 +70,8 @@ function AuthProvider({ children }) {
     loader,
     googleSignIn,
     githubSignIn,
-    updateUserProfile
+    facebookSignIn,
+    updateUserProfile,
   };
 
   return (

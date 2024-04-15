@@ -18,7 +18,7 @@ function Login() {
   const [password, setPassword] = useState(null);
   const [show, setShow] = useState(true);
   const navigate = useNavigate();
-  const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
+  const { signIn, googleSignIn, githubSignIn, facebookSignIn } = useContext(AuthContext);
 
   const handleLoginForm = (e) => {
     e.preventDefault();
@@ -46,6 +46,17 @@ function Login() {
         toast.error("Login failed, Something went wrong!!");
       });
   };
+  const handleFacebookSignIn = () => {
+    facebookSignIn()
+      .then((res) => {
+        console.log(res.user);
+        toast.success("Login Success.");
+        navigate("/");
+      })
+      .catch(() => {
+        toast.error("Login failed, Something went wrong!!");
+      });
+  }
 
   const handleGithubSignIn = () => {
     githubSignIn()
@@ -123,7 +134,7 @@ function Login() {
             </div>
             <div className="btn">
               {" "}
-              <FaFacebook />{" "}
+              <FaFacebook onClick={handleFacebookSignIn} />{" "}
             </div>
           </div>
           <p>
