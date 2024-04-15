@@ -28,7 +28,13 @@ function Card({ data }) {
         </div>
         <div className="flex w-fit gap-2 items-center">
           <p className="font-bold">Status: </p>
-          <p className="font-semibold text-primary">{status}</p>
+          <p
+            className={`font-extrabold ${
+              status == "sale" ? "text-primary" : "text-red-700"
+            } `}
+          >
+            {status}
+          </p>
         </div>
         <div className="card-actions justify-center mt-4">
           <button
