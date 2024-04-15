@@ -18,11 +18,28 @@ function Profile() {
     setEdit(!checkbox);
   }, [checkbox]);
 
+  const validation = (name, photo) => {
+    if (name.length < 6) {
+      toast.error("Invalid Name!");
+      return false;
+    }
+    if (photo.length < 6) {
+      toast.error("Invalid photo URL!");
+      return false;
+    }
+    return true;
+  };
+
   const handleUpdate = (e) => {
     e.preventDefault();
+
+    if (!validation(name, photo)) {
+      return;
+    }
+
     updateUserProfile(name, photo);
     setCheckbox(!checkbox);
-    toast.success("Profile Successfully Updated!")
+    toast.success("Profile Successfully Updated!");
   };
 
   return (

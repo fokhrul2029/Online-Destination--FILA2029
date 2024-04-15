@@ -4,18 +4,50 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contextApi/AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { GrValidate } from "react-icons/gr";
 
 /* eslint-disable react/no-unescaped-entities */
 function Register() {
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [photo, setPhoto] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [password, setPassword] = useState("");
   const [show, setShow] = useState(true);
   const { createUser, updateUserProfile } = useContext(AuthContext);
 
+  const validation = (name, email, photo, password) => {
+    if (name.length < 6) {
+      toast.error("Invalid name!");
+      return false;
+    }
+
+    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+      toast.error("Invalid email!");
+      return false;
+    }
+    if (photo.length < 6) {
+      toast.error("Invalid photo URL!");
+      return false;
+    }
+    if (password.length < 6) {
+      toast.error("Password should be 6 characters or longer");
+      return false;
+    } else if (!/[A-Z]/.test(password)) {
+      toast.error("Must include at least one uppercase letter");
+      return false;
+    } else if (!/[a-z]/.test(password)) {
+      toast.error("Must include at least one lowercase letter");
+      return false;
+    }
+
+    return true;
+  };
+
   const handleRegisterForm = (e) => {
     e.preventDefault();
+    if (!validation(name, email, photo, password)) {
+      return;
+    }
     console.log(name, email, photo, password);
     createUser(email, password)
       .then(() => {
@@ -26,6 +58,7 @@ function Register() {
         toast.error("Registration failed, Something went wrong!");
       });
   };
+
   return (
     <div className="hero py-20">
       <Helmet>
@@ -94,6 +127,40 @@ function Register() {
               >
                 {show ? <FaEyeSlash /> : <FaEye />}
               </span>
+            </div>
+            <div className="flex flex-col space-y-1 mt-2">
+              <div
+                className={`flex gap-2 items-center ${
+                  password.length < 6 ? "text-gray-500" : "text-green-500"
+                }`}
+              >
+                <GrValidate />
+                <span className=" text-sm">
+                  "Password should be 6 characters or longer"
+                </span>
+              </div>
+              <div
+                className={`flex gap-2 items-center ${
+                  !/[A-Z]/.test(password) ? "text-gray-500" : "text-green-500"
+                }`}
+              >
+                {" "}
+                <GrValidate />
+                <span className="text-sm">
+                  "Must include at least one uppercase letter"
+                </span>
+              </div>
+              <div
+                className={`flex gap-2 items-center ${
+                  !/[a-z]/.test(password) ? "text-gray-500" : "text-green-500"
+                }`}
+              >
+                {" "}
+                <GrValidate />
+                <span className="text-sm">
+                  "Must include at least one lowercase letter"
+                </span>
+              </div>
             </div>
           </div>
           <div className="form-control mt-6">
