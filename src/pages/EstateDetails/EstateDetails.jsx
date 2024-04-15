@@ -1,15 +1,22 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Helmet } from "react-helmet";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { getData, saveData } from "../../utility/localStorage";
+import { toast } from "react-toastify";
+import { useEffect } from "react";
+import { useState } from "react";
 
 function EstateDetails() {
   const paramsId = useParams();
   const uniqId = parseInt(paramsId.id);
   const data = useLoaderData();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [exists, setExist] = useState(false);
 
   const itemDetails = data.find((item) => item.id === uniqId);
 
   const {
+    id,
     estate_title,
     image,
     segment_name,
@@ -20,6 +27,26 @@ function EstateDetails() {
     location,
     facilities,
   } = itemDetails;
+
+  useEffect(() => {
+    const storageData = getData();
+    const exists = storageData.find((item) => item == id);
+    setExist(exists);
+  }, []);
+
+  const handleSaveData = (id) => {
+    console.log(id);
+    saveData(id);
+    setExist(!exists);
+    toast.success("Data added success!");
+  };
+  const handleRemoveData = (id) => {
+    const storageData = getData();
+    const updatedData = storageData.filter((item) => item !== id);
+    localStorage.setItem("FILA-2029--bookmarks", JSON.stringify(updatedData));
+    setExist(!exists);
+    toast("Data Successfully Removed!");
+  };
 
   return (
     <div className="py-20 container mx-auto px-4">
@@ -68,9 +95,29 @@ function EstateDetails() {
                     ))}
                   </ul>
                 </div>
-                <button onClick={() => navigate(-1) } className="btn bg-primary border-transparent hover:bg-primary text-white">
-                  Back to Home
-                </button>
+                <div className="flex items-center gap-4">
+                  <button
+                    onClick={() => navigate(-1)}
+                    className="btn bg-primary border-transparent hover:bg-primary text-white"
+                  >
+                    Back to Home
+                  </button>
+                  {exists ? (
+                    <button
+                      className="btn bg-orange-800 border-transparent hover:bg-orange-700 text-white"
+                      onClick={() => handleRemoveData(id)}
+                    >
+                      Remove from Bookmark
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => handleSaveData(id)}
+                      className="btn bg-green-700 border-transparent hover:bg-green-600 text-white"
+                    >
+                      Save to Bookmark
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           </div>

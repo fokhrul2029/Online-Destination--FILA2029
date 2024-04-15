@@ -21,6 +21,11 @@ function Navbar() {
       <li>
         <NavLink to="/profile">Update Profile</NavLink>
       </li>
+      {user && (
+        <li>
+          <NavLink to="/bookmark">Bookmark</NavLink>
+        </li>
+      )}
     </div>
   );
 

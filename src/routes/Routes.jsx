@@ -8,6 +8,7 @@ import EstateDetails from "../pages/EstateDetails/EstateDetails";
 import Profile from "../pages/Profile/Profile";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PublicRoutes from "./PublicRoutes/PublicRoutes";
+import Bookmark from "../pages/Bookmark/Bookmark";
 
 const routes = createBrowserRouter([
   {
@@ -51,6 +52,15 @@ const routes = createBrowserRouter([
           <PublicRoutes>
             <Register />
           </PublicRoutes>
+        ),
+      },
+      {
+        path: "/bookmark",
+        loader: () => fetch("/estateData.json"),
+        element: (
+          <PrivateRoute>
+            <Bookmark />
+          </PrivateRoute>
         ),
       },
     ],

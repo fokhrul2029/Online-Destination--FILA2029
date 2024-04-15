@@ -6,7 +6,7 @@ function Card({ data }) {
   const { id, image, estate_title, description, location, status } = data;
 
   const handleDetailsButton = (id) => {
-    navigate(`estateDetails/${id}`);
+    navigate(`/estateDetails/${id}`);
   };
 
   return (
