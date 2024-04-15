@@ -1,7 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
-import { FaGoogle, FaGithub, FaFacebook } from "react-icons/fa";
+import {
+  FaGoogle,
+  FaGithub,
+  FaFacebook,
+  FaEye,
+  FaEyeSlash,
+} from "react-icons/fa";
 import { useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../contextApi/AuthProvider/AuthProvider";
@@ -10,6 +16,7 @@ import { toast } from "react-toastify";
 function Login() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  const [show, setShow] = useState(true);
   const navigate = useNavigate();
   const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
 
@@ -19,11 +26,11 @@ function Login() {
     signIn(email, password)
       .then((res) => {
         console.log(res.use);
-        toast.success("Login Success.")
+        toast.success("Login Success.");
         navigate("/");
       })
       .catch((error) => {
-        toast.error("Login failed, Email or password doesn't incorrect!")
+        toast.error("Login failed, Email or password doesn't incorrect!");
         console.error(error);
       });
   };
@@ -32,12 +39,11 @@ function Login() {
     googleSignIn()
       .then((res) => {
         console.log(res.user);
-        toast.success("Login Success.")
+        toast.success("Login Success.");
         navigate("/");
-
       })
       .catch(() => {
-        toast.error("Login failed, Something went wrong!!")
+        toast.error("Login failed, Something went wrong!!");
       });
   };
 
@@ -45,11 +51,11 @@ function Login() {
     githubSignIn()
       .then((res) => {
         console.log(res.user);
-        toast.success("Login Success.")
+        toast.success("Login Success.");
         navigate("/");
       })
       .catch(() => {
-        toast.error("Login failed, Something went wrong!!")
+        toast.error("Login failed, Something went wrong!!");
       });
   };
 
@@ -80,14 +86,22 @@ function Login() {
             <label className="label">
               <span className="label-text">Password</span>
             </label>
-            <input
-              type="password"
-              placeholder="password"
-              className="input input-bordered"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className="relative">
+              <input
+                type={show ? "password" : "text"}
+                placeholder="password"
+                className="input input-bordered w-full"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <span
+                onClick={() => setShow(!show)}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-2xl cursor-pointer bg-white pl-3"
+              >
+                {show ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
             <label className="label">
               <a href="#" className="label-text-alt link link-hover">
                 Forgot password?
@@ -95,7 +109,9 @@ function Login() {
             </label>
           </div>
           <div className="form-control mt-6">
-            <button className="btn bg-primary border-transparent hover:bg-primary text-white">Login</button>
+            <button className="btn bg-primary border-transparent hover:bg-primary text-white">
+              Login
+            </button>
           </div>
           <div className="flex gap-4 justify-around items-center py-4">
             <div onClick={handleGoogleSignIn} className="btn">

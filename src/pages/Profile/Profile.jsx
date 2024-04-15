@@ -49,7 +49,7 @@ function Profile() {
           <div className="flex gap-10 items-center">
             <div className="text-center w-1/3">
               <img
-                className="mx-auto border-blue-200 rounded-full w-full border-2 p-2"
+                className="mx-auto border-blue-200 rounded-full w-full border-2 p-2 animate__animated animate__pulse"
                 src={photoURL}
                 alt={displayName || "null"}
               />

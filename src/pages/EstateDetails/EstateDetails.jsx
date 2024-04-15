@@ -38,7 +38,7 @@ function EstateDetails() {
                 />
                 <div className="absolute inset-0 bg-black opacity-30"></div>
                 <div className="absolute inset-0 flex justify-center items-center">
-                  <h1 className="text-white text-3xl font-bold text-center">
+                  <h1 className="text-white text-3xl font-bold text-center animate__animated animate__swing">
                     {estate_title}
                   </h1>
                 </div>

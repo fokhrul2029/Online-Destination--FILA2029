@@ -10,7 +10,11 @@ function Card({ data }) {
   };
 
   return (
-    <div className="card bg-base-100 shadow-xl">
+    <div
+      className="card bg-base-100 shadow-xl"
+      data-aos="zoom-in-up"
+      data-aos-duration="1500"
+    >
       <figure>
         <img className="h-48 w-full" src={image} alt="Shoes" />
       </figure>

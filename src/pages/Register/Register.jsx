@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contextApi/AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 /* eslint-disable react/no-unescaped-entities */
 function Register() {
@@ -10,6 +11,7 @@ function Register() {
   const [email, setEmail] = useState(null);
   const [photo, setPhoto] = useState(null);
   const [password, setPassword] = useState(null);
+  const [show, setShow] = useState(true);
   const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const handleRegisterForm = (e) => {
@@ -77,17 +79,27 @@ function Register() {
             <label className="label">
               <span className="label-text">Password</span>
             </label>
-            <input
-              type="password"
-              placeholder="password"
-              className="input input-bordered"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className="relative">
+              <input
+                type={show ? "password" : "text"}
+                placeholder="password"
+                className="input input-bordered w-full"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <span
+                onClick={() => setShow(!show)}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-2xl cursor-pointer bg-white pl-3"
+              >
+                {show ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
           </div>
           <div className="form-control mt-6">
-            <button className="btn bg-primary border-transparent hover:bg-primary text-white">Register</button>
+            <button className="btn bg-primary border-transparent hover:bg-primary text-white">
+              Register
+            </button>
           </div>
           <p>
             I have an account.{" "}
