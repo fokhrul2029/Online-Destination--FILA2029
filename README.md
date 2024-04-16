@@ -2,6 +2,20 @@
 
 FILA 2029: Your premier online destination for navigating essential societal hubs, from hospitals to schools, religious centers, transportation terminals, convention spaces, and art galleries. Explore detailed insights, services, and resources tailored to each venue, empowering you to make informed decisions and engage with these vital community assets confidently.
 
+### Website category and properties:
+
+**Category Name:**
+- Speciality
+
+  **Properties:**
+- Hospitals
+- schools
+- religious facilities
+- transportation
+  terminals
+- convention centers
+- art galleries etc
+
 ## NPM Packages for challenge task
 
 - Swiper slider

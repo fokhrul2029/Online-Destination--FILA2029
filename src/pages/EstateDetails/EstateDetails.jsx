@@ -97,7 +97,7 @@ function EstateDetails() {
                 </div>
                 <div className="flex items-center gap-4">
                   <button
-                    onClick={() => navigate(-1)}
+                    onClick={() => navigate("/")}
                     className="btn bg-primary border-transparent hover:bg-primary text-white"
                   >
                     Back to Home
