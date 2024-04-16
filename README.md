@@ -7,7 +7,7 @@ FILA 2029: Your premier online destination for navigating essential societal hub
 **Category Name:**
 - Speciality
 
-  **Properties:**
+**Properties:**
 - Hospitals
 - schools
 - religious facilities
