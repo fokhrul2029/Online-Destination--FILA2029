@@ -13,7 +13,7 @@ function Bookmark() {
     <div className="py-14">
       <div className="container mx-auto px-4">
         <div className="bg-gray-100 flex items-center justify-center rounded-xl py-14">
-          <h1 className="text-4xl font-bold text-gray-600">Bookmark Page</h1>
+          <h1 className="text-4xl font-bold text-gray-600">Bookmarked Items</h1>
         </div>
         <div className="mt-14 border-t-2 py-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">

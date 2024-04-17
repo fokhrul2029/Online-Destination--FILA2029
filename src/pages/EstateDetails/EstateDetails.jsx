@@ -95,7 +95,7 @@ function EstateDetails() {
                     ))}
                   </ul>
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="flex justify-start gap-2 md:gap-4 flex-col md:flex-row">
                   <button
                     onClick={() => navigate("/")}
                     className="btn bg-primary border-transparent hover:bg-primary text-white"
