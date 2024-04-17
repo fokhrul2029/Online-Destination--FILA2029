@@ -9,7 +9,7 @@
     "area": "100,000 sq ft",
     "location": "New York City, New York",
     "facilities": ["emergency department", "surgical suites", "MRI center"],
-    "image": "/img/hospital-complex.jpg"
+    "image": "https://i.ibb.co/YjDvvSx/hospital-complex.jpg"
   },
   {
     "id": 2,
@@ -21,7 +21,7 @@
     "area": "50,000 sq ft",
     "location": "London, England",
     "facilities": ["science labs", "art studios", "sports fields"],
-    "image": "/img/private-school.jpg"
+    "image": "https://i.ibb.co/gTN3zL7/private-school.jpg"
   },
   {
     "id": 3,
@@ -33,7 +33,7 @@
     "area": "10,000 sq ft",
     "location": "Paris, France",
     "facilities": ["stained glass windows", "bell tower", "crypt"],
-    "image": "/img/historic-cathedral.jpg"
+    "image": "https://i.ibb.co/BTjpqJL/historic-cathedral.jpg"
   },
   {
     "id": 4,
@@ -45,7 +45,7 @@
     "area": "200,000 sq ft",
     "location": "Tokyo, Japan",
     "facilities": ["train platforms", "bus terminals", "subway access"],
-    "image": "/img/transportation-hub.jpg"
+    "image": "https://i.ibb.co/tzv6x59/transportation-hub.jpg"
   },
   {
     "id": 5,
@@ -57,7 +57,7 @@
     "area": "300,000 sq ft",
     "location": "Dubai, UAE",
     "facilities": ["exhibition halls", "meeting rooms", "ballrooms"],
-    "image": "/img/grand-convention-center.jpg"
+    "image": "https://i.ibb.co/4RRx0T1/grand-convention-center.jpg"
   },
   {
     "id": 6,
@@ -69,6 +69,6 @@
     "area": "20,000 sq ft",
     "location": "Berlin, Germany",
     "facilities": ["gallery spaces", "sculpture garden", "lecture hall"],
-    "image": "/img/art-gallery.jpg"
+    "image": "https://i.ibb.co/5M96rgP/art-gallery.jpg"
   }
 ]
