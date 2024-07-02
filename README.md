@@ -5,9 +5,11 @@ FILA 2029: Your premier online destination for navigating essential societal hub
 ### Website category and properties:
 
 **Category Name:**
+
 - Speciality
 
 **Properties:**
+
 - Hospitals
 - schools
 - religious facilities
@@ -37,3 +39,25 @@ FILA 2029: Your premier online destination for navigating essential societal hub
 ## Demo:
 
 - **Live Link:** https://b9a9-b9--real-estate-f2e11.web.app/
+
+## Clone and Run The Project
+
+**To clone and Run the project on your local Computer, Follow the steps:**
+
+- **step 1:** clone the Repository
+
+```bash
+git clone https://github.com/fokhrul2029/Online-Destination--FILA2029.git
+```
+
+- **step 2:** Install Dependency
+
+```bash
+npm install
+```
+
+- **step 3:** Run on local computer
+
+```bash
+npm run dev
+```
